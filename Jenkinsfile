@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('build jar'){
             steps{
-                echo "Building war file"
+                echo "Building jar file"
                 sh 'gradle clean build'
             }
         }
