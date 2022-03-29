@@ -27,3 +27,21 @@ steps:
     PathtoPublish: 'build/**/*-SNAPSHOT.jar'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+    
+    
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: |
+     **/*.jar
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+      
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: package'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: package
+  condition: succeededOrFailed()
