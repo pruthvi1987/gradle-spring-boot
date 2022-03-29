@@ -21,14 +21,6 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
-  
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'build/**/*-SNAPSHOT.jar'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-
-    
     
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
