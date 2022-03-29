@@ -27,7 +27,7 @@ steps:
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
     Contents: |
-     **/*.jar
+     build/libs/*.jar
     TargetFolder: '$(build.artifactstagingdirectory)'
   condition: succeededOrFailed()
       
