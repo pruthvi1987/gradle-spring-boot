@@ -9,7 +9,8 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:- task: Gradle@2
+steps:
+- task: Gradle@2
   inputs:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
@@ -23,6 +24,6 @@ steps:- task: Gradle@2
   
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '**/**/**/*.jar'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/**/**/**/*.jar'
     ArtifactName: 'drop'
     publishLocation: 'Container'
